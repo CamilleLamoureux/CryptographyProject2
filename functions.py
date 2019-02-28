@@ -12,7 +12,6 @@ def init(n,l,coordinates):
 
 
 def fullDictionaryCipher(text,l,coordinates,dictionary):
-    print("fullDictionaryCipher")
 
 
 def fullDictionaryDecipher(text,n,l,coordinates,dictionary):
@@ -20,7 +19,7 @@ def fullDictionaryDecipher(text,n,l,coordinates,dictionary):
 
 
 def fullDictionary(text,n,l,coordinates,dictionary,cipher):
-    print("fullDictionary")
+    fullDictionaryCipher(text, l, coordinates, dictionary) if cipher == True else fullDictionaryDecipher(text,n,l,coordinates,dictionary)
 
 
 def displayDictionary(n,l,coordinates,dictionary):
@@ -40,4 +39,3 @@ def dictionaryToString(n,l,coordinates,dictionary):
 
 
 def algorithm2(text,n,offset,cipher,display):
-    print("algorithm2")
