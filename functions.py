@@ -1,5 +1,6 @@
 def keyOK(n,offset):
-    print("keyOK")
+    maxOffset = 2*n - 3
+    return True if n >= 2 and 0<=offset<=maxOffset else False
 
 
 def computeCoordonates(n,l,offset):
