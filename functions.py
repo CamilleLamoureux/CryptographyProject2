@@ -4,11 +4,11 @@ def keyOK(n,offset):
 
 
 def computeCoordonates(n,l,offset):
-    print("computeCoordonates")
+    pass
 
 
 def init(n,l,coordinates):
-    print("init")
+    pass
 
 
 def fullDictionaryCipher(text,l,coordinates,dictionary):
@@ -17,7 +17,7 @@ def fullDictionaryCipher(text,l,coordinates,dictionary):
 
 
 def fullDictionaryDecipher(text,n,l,coordinates,dictionary):
-
+    pass
 
 
 def fullDictionary(text,n,l,coordinates,dictionary,cipher):
@@ -26,25 +26,23 @@ def fullDictionary(text,n,l,coordinates,dictionary,cipher):
 
 def displayDictionary(n,l,coordinates,dictionary):
     for line in range(n):
-        lineDisplay = []
-        for element in coordinates:
-            if element[0] == line:
-                lineDisplay.append(dictionary[element])
+        for row in range(l):
+            if (line, row) in dictionary:
+                print(dictionary[(line, row)], end=" | ")
             else:
-                lineDisplay.append('  ')
-        print('  '.join(lineDisplay))
+                print(" ", end=" | ")
+        print("")
 
 
 def dictionaryToStringCipher(n,l,coordinates,dictionary):
-    print("dictionaryToStringCipher")
-
+    pass
 
 def dictionaryToStringDecipher(l,coordinates,dictionary):
-    print("dictionaryToStringDecipher")
+    pass
 
 
 def dictionaryToString(n,l,coordinates,dictionary):
-    print("dictionaryToString")
+    pass
 
 
 def algorithm2(text,n,offset,cipher,display):
