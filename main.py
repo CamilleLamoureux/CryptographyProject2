@@ -1,4 +1,4 @@
-from functions import algorithm2
+from functions import algorithm2, keyOK
 print("Welcome ! ! \n"
       "You want to (1 or 2): \n"
       "\t 1- Cipher your own message\n"
@@ -30,8 +30,13 @@ if choice == 2:
 elif choice == 1:
     cipher = False
     text = list(input("Your message : "))
+
     n = int(input("Number of lines of your table (n) : "))
     offset = int(input("Your offset : "))
+    while not keyOK(n, offset):
+        n = int(input("Number of lines of your table (n) : "))
+        offset = int(input("Your offset : "))
+
     display = int("Do you want to display the table ? (1 or 2)"
                   "\n 1- Yes"
                   "\n 2- No")
