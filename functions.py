@@ -92,7 +92,11 @@ def fullDictionaryCipher(text,l,coordinates,dictionary):
 
 # Function that enters in the dictionnary all the letters of the cipher text
 def fullDictionaryDecipher(text,n,l,coordinates,dictionary):
-
+    for i in range(n):
+        for coordinate in coordinates:
+            if coordinate[0] == i:
+                dictionary[coordinates] = text[0]
+                del text[0]
 
 
 # Function that runs either fullDictionaryDecipher or Cipher
