@@ -24,7 +24,7 @@ if choice == 2:
     else:
         print("Please try again and make sure your input is 1 or 2.")
 
-    algorithm2(text,n,offset,cipher,display)
+    result = algorithm2(text,n,offset,cipher,display)
 
 # If we want to cipher
 elif choice == 1:
@@ -42,8 +42,9 @@ elif choice == 1:
     else :
         print("Please try again and make sure your input is 1 or 2.")
 
-    algorithm2(text,n,offset,cipher,display)
+    result = algorithm2(text,n,offset,cipher,display)
 
 else :
       print("Please try again and make sure your input is 1 or 2.")
 
+print(result)
