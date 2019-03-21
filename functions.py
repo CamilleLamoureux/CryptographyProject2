@@ -1,4 +1,4 @@
-# Function that test if their are remaining spaces in the text
+ # Function that test if their are remaining spaces in the text
 def noSpaceRemaining(text):
     return True if text.count(' ') == 0 else False
 
@@ -75,8 +75,23 @@ def keyOK(n,offset):
 
 
 # Function that computes all coordinates of the letters in the table in the right order
-def computeCoordonates(n,l,offset):
-    pass
+def computeCoordinates(n, l, offset):
+    list_result = []
+    i = offset
+    j = 0
+    direction = 1
+    while j <= l:
+        coord = (i, j)
+        list_result.append(coord)
+        print(coord)
+        i += direction
+        j += 1
+        if i == n:
+            direction = - 1
+        elif i == 0:
+            direction = 1
+    print(list_result)
+    return list_result
 
 
 # Function that enters the coordinates the keys of a dictionnary
