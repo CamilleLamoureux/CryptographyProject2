@@ -94,10 +94,12 @@ def computeCoordinates(n, l, offset):
     return list_result
 
 
-# Function that enters the coordinates the keys of a dictionnary
-def init(n,l,coordinates):
-    pass
-
+# Function that enters the coordinates the keys of a dictionary
+def init(n, l, coordinates):
+    dictionary = {}
+    for value in coordinates:
+        dictionary[value] = "None"
+    return dictionary
 
 # Function that enters in the dictionnary all the letters of the plain text
 def fullDictionaryCipher(text,l,coordinates,dictionary):
@@ -131,14 +133,23 @@ def displayDictionary(n,l,coordinates,dictionary):
 
 
 # Function that returns the cipher text by reading the dictionary
+def first(elem):
+    return elem[0]
+
 def dictionaryToStringCipher(n,l,coordinates,dictionary):
-    pass
+    cipher = []
+    liste = sorted(dictionary.items(), key=first)
+    for element in liste:
+        cipher.append(element[1])
+    return cipher
 
 
 # Function that returns the plain text by reading the dictionary
-def dictionaryToStringDecipher(l,coordinates,dictionary):
-    pass
-
+def dictionaryToStringDecipher(l, coordinates, dictionary):
+    decipher = []
+    for element in coordinates:
+        decipher.append(dictionary[element])
+    return decipher
 
 # Function that runs either dictionaryToStringCipher or Decipher
 def dictionaryToString(n,l,coordinates,dictionary):
