@@ -9,14 +9,12 @@ choice = int(input("Your choice : "))
 # If we want to decipher
 if choice == 2:
     cipher = True
-    text = list("PJMNEAJFCDJPMXVMTAQUARKNPZDMWOSEOLMQBGBZTGPTHUHYSOVDLXEYAPUYYNLKAWETEBMLAWBFFPDGVKGKUBTRYDJIVEACLBYVLOLRJROQCHMQHSILAKWJCNDLQSXBOMNKFXSFKDGVDLCWQYDNLH")
-    keyLeft = list("ALZBHGUWIEFJCDYNMQRVKPTOXS")
-    keyRight = list("TWXLPRDZMNUGSAQKJHEBCIFYVO")
-    offset = 8
-    n = 7
+    text = list(input('Your cipher text : '))
+    offset = int(input('The offset : '))
+    n = int(input('The number of lines : '))
     display = int("Do you want to display the table ? (1 or 2)"
                   "\n 1- Yes"
-                  "\n 2- No")
+                  "\n 2- No \n")
     if display == 1:
         display == True
     elif display == 2:
@@ -37,9 +35,9 @@ elif choice == 1:
         n = int(input("Number of lines of your table (n) : "))
         offset = int(input("Your offset : "))
 
-    display = int("Do you want to display the table ? (1 or 2)"
+    display = int(input("Do you want to display the table ? (1 or 2)"
                   "\n 1- Yes"
-                  "\n 2- No")
+                  "\n 2- No \n"))
     if display == 1:
         display == True
     elif display == 2:

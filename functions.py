@@ -83,14 +83,12 @@ def computeCoordinates(n, l, offset):
     while j <= l:
         coord = (i, j)
         list_result.append(coord)
-        print(coord)
         i += direction
         j += 1
         if i == n:
             direction = - 1
         elif i == 0:
             direction = 1
-    print(list_result)
     return list_result
 
 
@@ -113,7 +111,7 @@ def fullDictionaryDecipher(text, n, l, coordinates, dictionary):
     for i in range(n):
         for coordinate in coordinates:
             if coordinate[0] == i:
-                dictionary[coordinates] = text[0]
+                dictionary[coordinate] = text[0]
                 del text[0]
 
 
@@ -157,27 +155,27 @@ def dictionaryToStringDecipher(l, coordinates, dictionary):
 
 
 # Function that runs either dictionaryToStringCipher or Decipher
-def dictionaryToString(n, l, coordinates, dictionary):
-    if cipher:
-        dictionaryToStringCipher(n, l, coordinates, dictionary)
+def dictionaryToString(n, l, coordinates, dictionary,cipher):
+    if cipher == True:
+        text = dictionaryToStringCipher(n, l, coordinates, dictionary)
     else:
-        dictionaryToStringDecipher(l, coordinates, dictionary)
+        text = dictionaryToStringDecipher(l, coordinates, dictionary)
+    return text
 
 
 # Main function that calls all the other function
 def algorithm2(text, n, offset, cipher, display):
-    result = []
     text = convertLetters(text)
     l = len(text)
-    coordinates = computeCoordonates(n, l, offset)
+    coordinates = computeCoordinates(n, l, offset)
     dictionary = init(n, l, coordinates)
 
     fullDictionary(text, n, l, coordinates, dictionary, cipher)
 
-    dictionaryToString(n, l, coordinates, dictionary)
+    result = dictionaryToString(n, l, coordinates, dictionary,cipher)
 
     # If we want a display
     if display == True:
         displayDictionary(n, l, coordinates, dictionary)
 
-    return result
+    return ''.join(result)
