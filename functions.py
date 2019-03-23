@@ -1,4 +1,4 @@
- # Function that test if their are remaining spaces in the text
+# Function that test if their are remaining spaces in the text
 def noSpaceRemaining(text):
     return True if text.count(' ') == 0 else False
 
@@ -69,9 +69,9 @@ def convertLetters(text):
 
 
 # Function that tests if the given key is correct
-def keyOK(n,offset):
-    maxOffset = 2*n - 3
-    return True if n >= 2 and 0<=offset<=maxOffset else False
+def keyOK(n, offset):
+    maxOffset = 2 * n - 3
+    return True if n >= 2 and 0 <= offset <= maxOffset else False
 
 
 # Function that computes all coordinates of the letters in the table in the right order
@@ -101,14 +101,15 @@ def init(n, l, coordinates):
         dictionary[value] = "None"
     return dictionary
 
+
 # Function that enters in the dictionnary all the letters of the plain text
-def fullDictionaryCipher(text,l,coordinates,dictionary):
+def fullDictionaryCipher(text, l, coordinates, dictionary):
     for i in range(l):
         dictionary[coordinates[i]] = text[i]
 
 
 # Function that enters in the dictionnary all the letters of the cipher text
-def fullDictionaryDecipher(text,n,l,coordinates,dictionary):
+def fullDictionaryDecipher(text, n, l, coordinates, dictionary):
     for i in range(n):
         for coordinate in coordinates:
             if coordinate[0] == i:
@@ -117,12 +118,14 @@ def fullDictionaryDecipher(text,n,l,coordinates,dictionary):
 
 
 # Function that runs either fullDictionaryDecipher or Cipher
-def fullDictionary(text,n,l,coordinates,dictionary,cipher):
-    fullDictionaryCipher(text, l, coordinates, dictionary) if cipher == True else fullDictionaryDecipher(text,n,l,coordinates,dictionary)
+def fullDictionary(text, n, l, coordinates, dictionary, cipher):
+    fullDictionaryCipher(text, l, coordinates, dictionary) if cipher == True else fullDictionaryDecipher(text, n, l,
+                                                                                                         coordinates,
+                                                                                                         dictionary)
 
 
 # Function that displays on the CLI the table with the letters
-def displayDictionary(n,l,coordinates,dictionary):
+def displayDictionary(n, l, coordinates, dictionary):
     for line in range(n):
         for row in range(l):
             if (line, row) in dictionary:
@@ -136,7 +139,8 @@ def displayDictionary(n,l,coordinates,dictionary):
 def first(elem):
     return elem[0]
 
-def dictionaryToStringCipher(n,l,coordinates,dictionary):
+
+def dictionaryToStringCipher(n, l, coordinates, dictionary):
     cipher = []
     liste = sorted(dictionary.items(), key=first)
     for element in liste:
@@ -151,14 +155,17 @@ def dictionaryToStringDecipher(l, coordinates, dictionary):
         decipher.append(dictionary[element])
     return decipher
 
+
 # Function that runs either dictionaryToStringCipher or Decipher
-def dictionaryToString(n,l,coordinates,dictionary):
-    pass
+def dictionaryToString(n, l, coordinates, dictionary):
+    if cipher:
+        dictionaryToStringCipher(n, l, coordinates, dictionary)
+    else:
+        dictionaryToStringDecipher(l, coordinates, dictionary)
 
 
 # Main function that calls all the other function
-def algorithm2(text,n,offset,cipher,display):
-
+def algorithm2(text, n, offset, cipher, display):
     result = []
     text = convertLetters(text)
     l = len(text)
@@ -167,10 +174,10 @@ def algorithm2(text,n,offset,cipher,display):
 
     fullDictionary(text, n, l, coordinates, dictionary, cipher)
 
-    dictionaryToString(n,l,coordinates,dictionary)
+    dictionaryToString(n, l, coordinates, dictionary)
 
     # If we want a display
     if display == True:
-        displayDictionary(n,l,coordinates,dictionary)
+        displayDictionary(n, l, coordinates, dictionary)
 
     return result
