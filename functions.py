@@ -80,8 +80,8 @@ def computeCoordinates(n, l, offset):
     i = offset
     j = 0
 
-    while i > n-1:
-        i -= 1
+    if offset >= n-1:
+        i = 2*n - offset - 2
 
     if offset >= n-1:
         direction = -1
