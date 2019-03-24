@@ -79,16 +79,26 @@ def computeCoordinates(n, l, offset):
     list_result = []
     i = offset
     j = 0
-    direction = 1
-    while j <= l:
+
+    while i > n-1:
+        i -= 1
+
+    if offset >= n-1:
+        direction = -1
+    else:
+        direction = 1
+
+    while j < l:
+        if i == n-1:
+            direction =- 1
+        elif i == 0:
+            direction = 1
+
         coord = (i, j)
         list_result.append(coord)
         i += direction
         j += 1
-        if i == n:
-            direction = - 1
-        elif i == 0:
-            direction = 1
+
     return list_result
 
 
@@ -98,6 +108,7 @@ def init(n, l, coordinates):
     for value in coordinates:
         dictionary[value] = "None"
     return dictionary
+
 
 
 # Function that enters in the dictionnary all the letters of the plain text
@@ -117,9 +128,10 @@ def fullDictionaryDecipher(text, n, l, coordinates, dictionary):
 
 # Function that runs either fullDictionaryDecipher or Cipher
 def fullDictionary(text, n, l, coordinates, dictionary, cipher):
-    fullDictionaryCipher(text, l, coordinates, dictionary) if cipher == True else fullDictionaryDecipher(text, n, l,
-                                                                                                         coordinates,
-                                                                                                         dictionary)
+    if cipher == True :
+        fullDictionaryCipher(text, l, coordinates, dictionary)
+    else :
+        fullDictionaryDecipher(text, n, l, coordinates,dictionary)
 
 
 # Function that displays on the CLI the table with the letters
